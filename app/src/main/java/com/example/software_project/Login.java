@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -101,6 +102,13 @@ public class Login extends AppCompatActivity {
         List<User> users = UserDataBase.getUsers();
         boolean validemail = true;
         boolean validpassword = true;
+
+        if(edtEmail.getText().toString().equals("Admin@gmail.com") && edtPassword.getText().toString().equals("admin")) {
+            Toast.makeText(this, "Welcome admin", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, Adminhomepage.class));
+            return true;
+        }
+
         for (int i = 0; i < users.size(); i++) {
             if (edtEmail.getText().toString().equals(users.get(i).getEmail())
                     && edtPassword.getText().toString().equals(users.get(i).getPassword())) {
