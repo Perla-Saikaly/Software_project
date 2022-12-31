@@ -1,4 +1,4 @@
-package com.example.software_project;
+﻿package com.example.software_project;
 
 public class NewPhone {
     private String name, status;
